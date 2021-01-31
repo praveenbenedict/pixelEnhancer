@@ -105,7 +105,7 @@ class WassFeatureLoss(nn.Module):
                 for f_pred, f_targ, w in zip(in_feat, styles, self.wass_wgts)
             ]
         self.metrics = dict(zip(self.metric_names, self.feat_losses))
-        return sum([l*w for l,w in zip(self.feat_losses,self.loss_wgts)])
+        return sum(self.feat_losses)
 
     def __del__(self):
         for i in self.hooks:
